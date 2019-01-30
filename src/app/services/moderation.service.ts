@@ -21,7 +21,7 @@ export class ModerationService {
 
   getPublic() {
     return this.http.get<Video[]>(
-      `https://safe-ridge-39617.herokuapp.com//videos/public`,
+      `https://safe-ridge-39617.herokuapp.com/videos/public`,
       httpOptions
     );
   }

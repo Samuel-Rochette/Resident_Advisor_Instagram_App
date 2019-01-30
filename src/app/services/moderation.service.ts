@@ -14,28 +14,28 @@ export class ModerationService {
 
   getAll() {
     return this.http.get<Video[]>(
-      `http://localhost:3000/videos/manage`,
+      `https://safe-ridge-39617.herokuapp.com/videos/manage`,
       httpOptions
     );
   }
 
   getPublic() {
     return this.http.get<Video[]>(
-      `http://localhost:3000/videos/public`,
+      `https://safe-ridge-39617.herokuapp.com//videos/public`,
       httpOptions
     );
   }
 
   deleteOne(id: string) {
     return this.http.delete<Video>(
-      `http://localhost:3000/videos/manageone/${id}`,
+      `https://safe-ridge-39617.herokuapp.com/videos/manageone/${id}`,
       httpOptions
     );
   }
 
   updateOne(video: Video) {
     return this.http.put<Video>(
-      `http://localhost:3000/videos/manageone/${video._id}`,
+      `https://safe-ridge-39617.herokuapp.com/videos/manageone/${video._id}`,
       video,
       httpOptions
     );

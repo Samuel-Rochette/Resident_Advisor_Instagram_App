@@ -1,0 +1,28 @@
+<div class="field">
+  <h5>Name /</h5>
+  <a href="https://residentadvisor.net/events/{{data.eventNum}}" target="_blank">{{data.name}}</a>
+</div>
+<div class="field" *ngIf="data.location">
+  <h5>Location /</h5>
+  <p>{{data.location}}</p>
+</div>
+<div class="field">
+  <h5>Term /</h5>
+  <a href="https://www.instagram.com/explore/{{data.termUrl}}" target="_blank">{{data.termName}}</a>
+</div>
+<div class="field" *ngIf="data.promoters.length > 0">
+  <h5>Promoters /</h5>
+  <ul>
+    <li *ngFor="let promoter of data.promoters">
+      <p>{{promoter}}</p>
+    </li>
+  </ul>
+</div>
+<div class="field" *ngIf="data.artists.length > 0">
+  <h5>Lineup /</h5>
+  <ul>
+    <li *ngFor="let artist of data.artists">
+      <p>{{artist}}</p>
+    </li>
+  </ul>
+</div>

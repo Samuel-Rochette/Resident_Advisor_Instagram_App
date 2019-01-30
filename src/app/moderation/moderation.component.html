@@ -1,0 +1,15 @@
+<div class="center">
+  <ul id="thumbnailsList">
+    <li *ngFor="let video of videos | paginate: { itemsPerPage: 12, currentPage: p }">
+      <div class="tn">
+        <input type="checkbox" class="checkbox" (click)="toggleShow(video)" [attr.checked]="video.show ? '' : null" />
+        <fa name="info-circle" class="info" (click)="openDialog(video)"></fa>
+        <video width="260" height="214" preload="metadata" controls>
+          <source src="{{video.vidUrl}}" type="video/mp4">
+        </video>
+      </div>
+    </li>
+  </ul>
+
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>

@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+ul {
+  padding: 0;
+  width: 1200;
+  margin: 20px auto;
+  display: inline-block;
+}
+
+li {
+  display: inline;
+}
+
+.tn {
+  margin: 24px;
+  border: 2px solid #eee;
+  box-shadow: #555 1px 1px 8px 1px;
+  display: inline-block;
+}
+
+.info {
+  position: absolute;
+  margin-left: 242px;
+  z-index: 1;
+  color: blue;
+  cursor: pointer;
+}
+
+.center {
+  text-align: center;
+}
+
+.fill-remaining-space {
+    flex: 1 1 auto;
+}

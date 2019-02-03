@@ -1,14 +1,20 @@
 <div class="center">
+  <select (change)="onChange($event)">
+    <option *ngFor="let event of events" [value]="event._id">{{event.name}}</option>
+  </select>
+  <button mat-button (click)="openDialog()">Event Details</button>
+</div>
+<div class="center">
   <ul id="thumbnailsList">
     <li *ngFor="let video of videos | paginate: { itemsPerPage: 12, currentPage: p }">
       <div class="tn">
-        <fa name="info-circle" class="info" (click)="openDialog(video)"></fa>
         <video width="260" height="214" preload="metadata" controls>
           <source src="{{video.vidUrl}}" type="video/mp4">
         </video>
       </div>
     </li>
   </ul>
-
+</div>
+<div class="center">
   <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>

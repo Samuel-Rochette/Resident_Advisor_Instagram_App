@@ -8,14 +8,18 @@ import { NgxPaginationModule } from "ngx-pagination";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatToolbarModule, MatButtonModule } from "@angular/material";
+import { FormsModule } from "@angular/forms";
 
-import { ModerationService } from "./services/moderation.service";
+import { EventService } from "./services/event.service";
+import { TermService } from "./services/term.service";
+import { VideoService } from "./services/video.service";
 
 import { AppComponent } from "./app.component";
 import { ModerationComponent } from "./moderation/moderation.component";
 import { PublicComponent } from "./public/public.component";
 import { NavbarComponent } from "./navbar/navbar.component";
 import { DetailComponent } from "./detail/detail.component";
+import { TermsComponent } from "./terms/terms.component";
 
 @NgModule({
   declarations: [
@@ -23,7 +27,8 @@ import { DetailComponent } from "./detail/detail.component";
     ModerationComponent,
     PublicComponent,
     NavbarComponent,
-    DetailComponent
+    DetailComponent,
+    TermsComponent
   ],
   imports: [
     BrowserModule,
@@ -35,9 +40,10 @@ import { DetailComponent } from "./detail/detail.component";
     BrowserAnimationsModule,
     MatDialogModule,
     MatToolbarModule,
-    MatButtonModule
+    MatButtonModule,
+    FormsModule
   ],
-  providers: [ModerationService],
+  providers: [EventService, TermService, VideoService],
   bootstrap: [AppComponent],
   entryComponents: [DetailComponent]
 })

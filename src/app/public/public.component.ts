@@ -1,32 +1,45 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 import { MatDialog } from "@angular/material";
-import { ModerationService } from "../services/moderation.service";
 import { Video } from "../models/video.model";
+import { Event } from "../models/event.model";
 import { DetailComponent } from "../detail/detail.component";
+import { EventService } from "../services/event.service";
 
 @Component({
-  selector: 'app-public',
-  templateUrl: './public.component.html',
-  styleUrls: ['./public.component.scss']
+  selector: "app-public",
+  templateUrl: "./public.component.html",
+  styleUrls: ["./public.component.scss"]
 })
-export class PublicComponent {
+export class PublicComponent implements OnInit {
   p: number = 1;
+  events: Event[];
   videos: Video[];
+  currentEvent: Event;
 
-  constructor(
-    public dialog: MatDialog,
-    private moderationService: ModerationService
-  ) {
-    this.moderationService.getPublic().subscribe(data => {
-      this.videos = data;
+  constructor(public dialog: MatDialog, private eventService: EventService) {}
+
+  ngOnInit() {
+    this.eventService.getAll().subscribe(res => {
+      this.events = res;
+      this.currentEvent = res[0];
+      this.eventService.getPublic(this.currentEvent._id).subscribe(res => {
+        this.videos = res.videos;
+      });
     });
   }
 
-  openDialog(video: Video) {
+  onChange(event) {
+    this.eventService.getPublic(event.target.value).subscribe(res => {
+      this.videos = res.videos;
+      this.currentEvent = res;
+    });
+  }
+
+  openDialog() {
     const dialogRef = this.dialog.open(DetailComponent, {
       width: "300px",
       height: "500px",
-      data: video
+      data: this.currentEvent
     });
   }
 }

@@ -1,0 +1,31 @@
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Extension</th>
+    <th></th>
+  </tr>
+  <ng-container *ngFor="let term of terms; index as i;">
+    <tr>
+      <td>
+        {{term.name}}
+      </td>
+      <td>
+        {{term.extension}}
+      </td>
+      <td>
+        <fa name="trash" class="trash" (click)="deleteOne(term._id, i)"></fa>
+      </td>
+    </tr>
+  </ng-container>
+  <tr>
+    <td>
+      <input [(ngModel)]="nameInput" type=text />
+    </td>
+    <td>
+      <input [(ngModel)]="extensionInput" type=text />
+    </td>
+    <td>
+      <fa name="plus" class="add" (click)="createNew()"></fa>
+    </td>
+  </tr>
+</table>

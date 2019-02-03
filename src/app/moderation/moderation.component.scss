@@ -1,7 +1,12 @@
-.checkbox {
+select {
+  margin-left: 32px;
+  margin-top: 20px;
+}
+
+.approve {
   position: absolute;
-  margin-left: 6px;
-  margin-top: 6px;
+  margin-left: 242px;
   z-index: 1;
+  color: green;
   cursor: pointer;
 }

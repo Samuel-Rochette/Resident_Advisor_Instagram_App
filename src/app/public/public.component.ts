@@ -24,6 +24,9 @@ export class PublicComponent implements OnInit {
       this.currentEvent = res[0];
       this.eventService.getPublic(this.currentEvent._id).subscribe(res => {
         this.videos = res.videos;
+        this.videos.forEach(video => {
+          video.description = video.description.replace(/\\n/g, "\n");
+        });
       });
     });
   }
@@ -32,6 +35,9 @@ export class PublicComponent implements OnInit {
     this.eventService.getPublic(event.target.value).subscribe(res => {
       this.videos = res.videos;
       this.currentEvent = res;
+      this.videos.forEach(video => {
+        video.description = video.description.replace(/\\n/g, "\n");
+      });
     });
   }
 

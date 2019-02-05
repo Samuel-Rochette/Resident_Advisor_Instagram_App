@@ -2,8 +2,8 @@ import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Event } from "../models/event.model";
 
-const baseURL = "https://safe-ridge-39617.herokuapp.com";
-// const baseURL = "http://localhost:3000";
+// const baseURL = "https://safe-ridge-39617.herokuapp.com";
+const baseURL = "http://localhost:3000";
 
 const httpOptions = {
   headers: new HttpHeaders({

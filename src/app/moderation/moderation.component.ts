@@ -40,6 +40,9 @@ export class ModerationComponent implements OnInit {
     this.eventService.getManage(event.target.value).subscribe(res => {
       this.videos = res.videos;
       this.currentEvent = res;
+      this.videos.forEach(video => {
+        video.description = video.description.replace(/\\n/g, "\n");
+      });
     });
   }
 

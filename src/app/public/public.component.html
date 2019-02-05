@@ -8,9 +8,21 @@
   <ul id="thumbnailsList">
     <li *ngFor="let video of videos | paginate: { itemsPerPage: 12, currentPage: p }">
       <div class="tn">
-        <video width="260" height="214" preload="metadata" controls>
-          <source src="{{video.vidUrl}}" type="video/mp4">
-        </video>
+       <div class="d-flex align-items-left">
+          <video width="260" height="214" preload="metadata" controls>
+            <source src="{{video.vidUrl}}" type="video/mp4">
+          </video>
+          <div class="info">
+            <div *ngIf="video.user">
+              <h6>User /</h6>
+              <p>{{video.user}}</p>
+            </div>
+            <div *ngIf="video.description">
+              <h6>Description /</h6>
+              <p style="white-space: pre-wrap">{{video.description}}</p>
+            </div>
+          </div>
+        </div>
       </div>
     </li>
   </ul>

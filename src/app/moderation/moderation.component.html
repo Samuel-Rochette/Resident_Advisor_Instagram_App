@@ -8,14 +8,12 @@
   <ul id="thumbnailsList">
     <li *ngFor="let video of videos | paginate: { itemsPerPage: 12, currentPage: p }; index as i;">
       <div class="tn">
-        <div class="card-img-top d-flex align-items-left bg-light">
-          <div>
-            <fa name="times" class="delete" (click)="deleteVideo(video._id, i)"></fa>
-            <fa name="check" class="approve" (click)="approveVideo(video._id, i)"></fa>
-            <video width="260" height="214" preload="metadata" controls>
-              <source src="{{video.vidUrl}}" type="video/mp4">
-            </video>
-          </div>
+        <div class="d-flex align-items-left">
+          <fa name="times" class="delete" (click)="deleteVideo(video._id, i)"></fa>
+          <fa name="check" class="approve" (click)="approveVideo(video._id, i)"></fa>
+          <video width="260" height="214" preload="metadata" controls>
+            <source src="{{video.vidUrl}}" type="video/mp4">
+          </video>
           <div class="info">
             <div *ngIf="video.user">
               <h6>User /</h6>
@@ -26,7 +24,6 @@
               <p style="white-space: pre-wrap">{{video.description}}</p>
             </div>
           </div>
-
         </div>
       </div>
     </li>

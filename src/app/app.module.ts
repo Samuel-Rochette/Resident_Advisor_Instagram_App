@@ -20,6 +20,8 @@ import { PublicComponent } from "./public/public.component";
 import { NavbarComponent } from "./navbar/navbar.component";
 import { DetailComponent } from "./detail/detail.component";
 import { TermsComponent } from "./terms/terms.component";
+import { EventsComponent } from './events/events.component';
+import { InfoComponent } from './info/info.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { TermsComponent } from "./terms/terms.component";
     PublicComponent,
     NavbarComponent,
     DetailComponent,
-    TermsComponent
+    TermsComponent,
+    EventsComponent,
+    InfoComponent
   ],
   imports: [
     BrowserModule,

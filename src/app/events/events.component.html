@@ -1,0 +1,28 @@
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Videos #</th>
+    <th>Date</th>
+    <th></th>
+    <th></th>
+  </tr>
+  <ng-container *ngFor="let event of events; index as i;">
+    <tr>
+      <td>
+        {{event.name}}
+      </td>
+      <td>
+        {{event.videos.length}}
+      </td>
+      <td>
+        {{event.date}}
+      </td>
+      <td>
+        <fa name="info-circle" class="info" (click)="openDetail(i)"></fa>
+      </td>
+      <td>
+        <fa name="trash" class="trash" (click)="endEvent(i)"></fa>
+      </td>
+    </tr>
+  </ng-container>
+</table>

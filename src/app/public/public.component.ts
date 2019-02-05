@@ -35,7 +35,7 @@ export class PublicComponent implements OnInit {
     });
   }
 
-  openDialog() {
+  openDetail() {
     const dialogRef = this.dialog.open(DetailComponent, {
       width: "300px",
       height: "500px",

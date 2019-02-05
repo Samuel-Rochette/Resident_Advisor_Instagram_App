@@ -1,0 +1,22 @@
+table {
+  max-height: 470px;
+  overflow: auto;
+  min-width: 340px;
+  width: 60%;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+tr {
+  border-bottom: 1px solid #ddd;
+}
+
+.trash {
+  cursor: pointer;
+  color: red;
+}
+
+.info {
+  cursor: pointer;
+  color: blue;
+}

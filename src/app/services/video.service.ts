@@ -22,4 +22,11 @@ export class VideoService {
       httpOptions
     );
   }
+
+  deleteOne(id: string) {
+    return this.http.delete<Video>(
+      `${baseURL}/videos/manage/${id}`,
+      httpOptions
+    );
+  }
 }

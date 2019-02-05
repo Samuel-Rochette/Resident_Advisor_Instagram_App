@@ -29,6 +29,9 @@ export class ModerationComponent implements OnInit {
       this.currentEvent = res[0];
       this.eventService.getManage(this.currentEvent._id).subscribe(res => {
         this.videos = res.videos;
+        this.videos.forEach(video => {
+          video.description = video.description.replace(/\\n/g, "\n");
+        });
       });
     });
   }
@@ -46,24 +49,17 @@ export class ModerationComponent implements OnInit {
     });
   }
 
-  openDialog() {
+  deleteVideo(id: string, index: number) {
+    this.videoService.updateOne(id, { show: false }).subscribe(res => {
+      this.videos.splice(index, 1);
+    });
+  }
+
+  openDetail() {
     const dialogRef = this.dialog.open(DetailComponent, {
       width: "300px",
       height: "500px",
       data: this.currentEvent
-    });
-  }
-
-  endEvent() {
-    let index = this.events.findIndex(e => {
-      return e._id === this.currentEvent._id;
-    });
-    this.eventService.deleteOne(this.currentEvent._id).subscribe(res => {
-      this.events.splice(index, 1);
-      this.currentEvent = this.events[0];
-      this.eventService.getManage(this.currentEvent._id).subscribe(res => {
-        this.videos = res.videos;
-      });
     });
   }
 }

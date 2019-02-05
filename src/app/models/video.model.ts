@@ -3,4 +3,5 @@ export interface Video {
   vidUrl: string;
   public: boolean;
   description: string;
+  user: string;
 }

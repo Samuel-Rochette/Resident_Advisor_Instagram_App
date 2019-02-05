@@ -18,6 +18,8 @@ li {
   border: 2px solid #eee;
   box-shadow: #555 1px 1px 8px 1px;
   display: inline-block;
+  width: 500px;
+  text-align: left;
 }
 
 .center {
@@ -25,5 +27,23 @@ li {
 }
 
 .fill-remaining-space {
-    flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+
+.info {
+  margin-left: 15px;
+  max-width: 220px;
+  max-height: 210px;
+  word-wrap: break-word;
+  overflow-y: auto;
+}
+
+@media only screen and (max-width: 600px) {
+  .info {
+    display: none;
+  }
+
+  .tn {
+    width: auto;
+  }
 }

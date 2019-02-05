@@ -3,10 +3,22 @@ select {
   margin-top: 20px;
 }
 
+h6 {
+  color: #b3b3b3;
+}
+
 .approve {
   position: absolute;
-  margin-left: 242px;
+  margin-left: 240px;
   z-index: 1;
   color: green;
+  cursor: pointer;
+}
+
+.delete {
+  position: absolute;
+  z-index: 1;
+  margin-left: 5px;
+  color: red;
   cursor: pointer;
 }

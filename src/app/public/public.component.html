@@ -2,7 +2,7 @@
   <select (change)="onChange($event)">
     <option *ngFor="let event of events" [value]="event._id">{{event.name}}</option>
   </select>
-  <button mat-button (click)="openDialog()">Event Details</button>
+  <button mat-button (click)="openDetail()">Event Details</button>
 </div>
 <div class="center">
   <ul id="thumbnailsList">

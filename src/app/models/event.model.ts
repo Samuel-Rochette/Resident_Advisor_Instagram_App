@@ -11,5 +11,6 @@ export interface Event {
   participants: string;
   promoters: string[];
   name: string;
+  date: string;
   videos: Video[];
 }

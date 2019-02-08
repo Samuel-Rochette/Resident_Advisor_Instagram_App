@@ -5,12 +5,12 @@ export interface Event {
   location: string;
   artists: string[];
   region: string;
-  termName: string;
-  termUrl: string;
   eventNum: string;
   participants: string;
   promoters: string[];
   name: string;
   date: string;
   videos: Video[];
+  terms: string[];
+  watch: boolean;
 }

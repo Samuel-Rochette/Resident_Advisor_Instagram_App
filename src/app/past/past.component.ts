@@ -14,11 +14,11 @@ function concatFields(input, field) {
 }
 
 @Component({
-  selector: "app-events",
-  templateUrl: "./events.component.html",
-  styleUrls: ["./events.component.scss"]
+  selector: "app-past",
+  templateUrl: "./past.component.html",
+  styleUrls: ["./past.component.scss"]
 })
-export class EventsComponent implements OnInit {
+export class PastComponent implements OnInit {
   events: Event[];
   searchInput: string = "";
 
@@ -29,7 +29,7 @@ export class EventsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.eventService.getFuture().subscribe(res => {
+    this.eventService.getPast().subscribe(res => {
       this.events = res;
       this.sortEvents();
     });
@@ -92,7 +92,7 @@ export class EventsComponent implements OnInit {
     let events = [];
     let counter = 0;
     console.log(event.target.value);
-    this.eventService.getFuture().subscribe(res => {
+    this.eventService.getPast().subscribe(res => {
       res.forEach(item => {
         counter += 1;
         if (

@@ -1,13 +1,16 @@
 table {
   max-height: 470px;
   overflow: auto;
-  width: 45%;
-  margin-top: 20px;
-  margin-left: 20px;
+  width: 90%;
+  margin: 20px;
 }
 
 tr {
   border-bottom: 1px solid #ddd;
+}
+
+input {
+  margin-right: 10px;
 }
 
 .add {

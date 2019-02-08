@@ -19,7 +19,7 @@ export class PublicComponent implements OnInit {
   constructor(public dialog: MatDialog, private eventService: EventService) {}
 
   ngOnInit() {
-    this.eventService.getAll().subscribe(res => {
+    this.eventService.getWatching().subscribe(res => {
       this.events = res;
       this.currentEvent = res[0];
       this.eventService.getPublic(this.currentEvent._id).subscribe(res => {

@@ -20,8 +20,10 @@ import { PublicComponent } from "./public/public.component";
 import { NavbarComponent } from "./navbar/navbar.component";
 import { DetailComponent } from "./detail/detail.component";
 import { TermsComponent } from "./terms/terms.component";
-import { EventsComponent } from './events/events.component';
-import { InfoComponent } from './info/info.component';
+import { EventsComponent } from "./events/events.component";
+import { InfoComponent } from "./info/info.component";
+import { AddTermsComponent } from "./add-terms/add-terms.component";
+import { PastComponent } from './past/past.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { InfoComponent } from './info/info.component';
     DetailComponent,
     TermsComponent,
     EventsComponent,
-    InfoComponent
+    InfoComponent,
+    AddTermsComponent,
+    PastComponent
   ],
   imports: [
     BrowserModule,
@@ -49,6 +53,6 @@ import { InfoComponent } from './info/info.component';
   ],
   providers: [EventService, TermService, VideoService],
   bootstrap: [AppComponent],
-  entryComponents: [DetailComponent]
+  entryComponents: [DetailComponent, AddTermsComponent]
 })
 export class AppModule {}

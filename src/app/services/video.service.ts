@@ -1,9 +1,9 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Video } from "../models/video.model";
+import { config } from "../config";
 
-// const baseURL = "https://safe-ridge-39617.herokuapp.com";
-const baseURL = "http://localhost:3000";
+const baseURL = config.baseURL;
 
 const httpOptions = {
   headers: new HttpHeaders({

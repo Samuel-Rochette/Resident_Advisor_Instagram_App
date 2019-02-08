@@ -1,9 +1,9 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Term } from "../models/term.model";
+import { config } from "../config";
 
-// const baseURL = "https://safe-ridge-39617.herokuapp.com";
-const baseURL = "http://localhost:3000";
+const baseURL = config.baseURL;
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -25,5 +25,9 @@ export class TermService {
 
   deleteOne(id: string) {
     return this.http.delete<Term>(`${baseURL}/terms/manage/${id}`, httpOptions);
+  }
+
+  updateOne(term: object) {
+    return this.http.put<Term>(`${baseURL}/terms`, term, httpOptions);
   }
 }

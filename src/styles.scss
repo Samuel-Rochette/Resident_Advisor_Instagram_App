@@ -2,17 +2,6 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-ul {
-  padding: 0;
-  width: 1200;
-  margin: 20px auto;
-  display: inline-block;
-}
-
-li {
-  display: inline;
-}
-
 .tn {
   margin: 24px;
   border: 2px solid #eee;
@@ -20,6 +9,10 @@ li {
   display: inline-block;
   width: 500px;
   text-align: left;
+}
+
+.no-events {
+  margin: 20px;
 }
 
 .center {

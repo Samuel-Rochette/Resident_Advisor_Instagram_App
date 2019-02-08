@@ -1,0 +1,28 @@
+h5 {
+  color: #b3b3b3;
+}
+
+ul {
+  padding: 0;
+  width: 1200;
+  display: inline-block;
+  list-style-type: none;
+}
+
+input {
+  margin-left: 17px;
+  margin-right: 20px;
+}
+
+button {
+  margin: 17px;
+}
+
+.add {
+  cursor: pointer;
+}
+
+.trash {
+  cursor: pointer;
+  color: red;
+}

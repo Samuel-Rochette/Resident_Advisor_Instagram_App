@@ -24,7 +24,7 @@ export class ModerationComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.eventService.getAll().subscribe(res => {
+    this.eventService.getWatching().subscribe(res => {
       this.events = res;
       this.currentEvent = res[0];
       this.eventService.getManage(this.currentEvent._id).subscribe(res => {

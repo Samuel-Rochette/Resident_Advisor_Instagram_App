@@ -1,34 +1,45 @@
-<div class="center">
-  <select (change)="onChange($event)">
-    <option *ngFor="let event of events" [value]="event._id">{{event.name}}</option>
-  </select>
-  <button mat-button (click)="openDetail()">Event Details</button>
-</div>
-<div class="center">
-  <ul id="thumbnailsList">
-    <li *ngFor="let video of videos | paginate: { itemsPerPage: 12, currentPage: p }; index as i;">
-      <div class="tn">
-        <div class="d-flex align-items-left">
-          <fa name="times" class="delete" (click)="deleteVideo(video._id, i)"></fa>
-          <fa name="check" class="approve" (click)="approveVideo(video._id, i)"></fa>
-          <video width="260" height="214" preload="metadata" controls>
-            <source src="{{video.vidUrl}}" type="video/mp4">
-          </video>
-          <div class="info">
-            <div *ngIf="video.user">
-              <h6>User /</h6>
-              <p>{{video.user}}</p>
-            </div>
-            <div *ngIf="video.description">
-              <h6>Description /</h6>
-              <p style="white-space: pre-wrap">{{video.description}}</p>
+<div *ngIf="events.length != 0">
+  <div class="center">
+    <select (change)="onChange($event)">
+      <option *ngFor="let event of events" [value]="event._id">{{event.name}}</option>
+    </select>
+    <button mat-button (click)="openDetail()">Event Details</button>
+  </div>
+  <div class="center">
+    <ul id="thumbnailsList">
+      <li *ngFor="let video of videos | paginate: { itemsPerPage: 12, currentPage: p }; index as i;">
+        <div class="tn">
+          <div class="d-flex align-items-left">
+            <fa name="times" class="delete" (click)="deleteVideo(video._id, i)"></fa>
+            <fa name="check" class="approve" (click)="approveVideo(video._id, i)"></fa>
+            <video width="260" height="214" preload="metadata" controls>
+              <source src="{{video.vidUrl}}" type="video/mp4">
+            </video>
+            <div class="info">
+              <div *ngIf="video.user">
+                <h6>User /</h6>
+                <p>{{video.user}}</p>
+              </div>
+              <div>
+                <h6>Description /</h6>
+                <p style="white-space: pre-wrap">{{video.description}}</p>
+              </div>
+              <div>
+                <h6>Tags /</h6>
+                <p>{{video.tags}}</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </li>
-  </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="center">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
 </div>
-<div class="center">
-  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+<div class="no-events" *ngIf="events.length == 0">
+  <div class="center">
+    There are currently no events being watched
+  </div>
 </div>

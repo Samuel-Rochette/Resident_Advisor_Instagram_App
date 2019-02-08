@@ -1,0 +1,30 @@
+<h5>Terms /</h5>
+  <ng-container *ngFor="let term of terms; index as i;">
+    <div class="row">
+      <div class="col-2">
+        {{term.name}}
+      </div>
+      <div class="col-10">
+        <ng-container *ngFor="let extension of term.extensions; index as y;">
+          <a href="https://www.instagram.com/explore/{{extension}}" target="_blank">{{extension.split("/")[1]}} </a><fa name="times" class="trash" (click)="removeExtension(i, y)"></fa>,
+        </ng-container>
+        <input id="additionalInputs{{term.name}}" [(ngModel)]="additionalInputs[term.name]" type=text /><fa name="plus" class="add" (click)="addExtension(term.name, i)"></fa>
+      </div>
+    </div>
+  </ng-container>
+<h5>Suplimentary Terms /</h5>
+<ng-container *ngFor="let term of suplimentaryTerms; index as i;">
+  <div class="row">
+    <div class="col-2">
+      <a href="https://www.instagram.com/explore/{{term}}" target="_blank">{{term.split("/")[1]}}</a>
+    </div>
+  </div>
+</ng-container>
+<div class="row">
+  <input [(ngModel)]="termInput" type="text" />
+  <fa name="plus" class="add" (click)="addTerm()"></fa>
+</div>
+<div class="row">
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button (click)="submitTerms()" [disabled]="data.length < 1">Approve</button>
+</div>

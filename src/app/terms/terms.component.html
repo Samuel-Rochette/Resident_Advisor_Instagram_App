@@ -1,18 +1,21 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Extension</th>
+    <th>Extensions</th>
     <th></th>
   </tr>
   <ng-container *ngFor="let term of terms; index as i;">
     <tr>
-      <td>
+      <td width="15%">
         {{term.name}}
       </td>
-      <td>
-        {{term.extension}}
+      <td width="50%">
+        <ng-container *ngFor="let extension of term.extensions; index as y;">
+          <a href="https://www.instagram.com/explore/{{extension}}" target="_blank">{{extension.split("/")[1]}} </a><fa name="times" class="trash" (click)="removeExtension(i, y)"></fa>,
+        </ng-container>
+        <input id="additionalInputs{{term.name}}" [(ngModel)]="additionalInputs[term.name]" type=text /><fa name="plus" class="add" (click)="addExtension(term.name, i)"></fa>
       </td>
-      <td>
+      <td width="5%">
         <fa name="trash" class="trash" (click)="deleteOne(term._id, i)"></fa>
       </td>
     </tr>
@@ -24,7 +27,7 @@
     <td>
       <input [(ngModel)]="extensionInput" type=text />
     </td>
-    <td>
+    <td width="5%">
       <fa name="plus" class="add" (click)="createNew()"></fa>
     </td>
   </tr>

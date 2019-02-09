@@ -1,3 +1,3 @@
 export const config = {
-  baseURL: "http://localhost:3000"
-}
+  baseURL: "https://safe-ridge-39617.herokuapp.com"
+};
